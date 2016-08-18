@@ -1,0 +1,34 @@
+{
+  "name": "jquery.touchwipe",
+  "authors": [
+    "Andreas Waltl",
+    "netCU Internetagentur (http://www.netcu.de)"
+  ],
+  "description": "jquery.touchwipe plugin",
+  "main": "jquery.touchwipe.js",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "jquery.touchwipe"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/PressReader/jquery.touchwipe",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "a0ae95477b",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "a0ae95477b598f8e3bb859f47863f0a93b9798e8"
+  },
+  "_source": "https://github.com/PressReader/jquery.touchwipe.git",
+  "_target": "*",
+  "_originalSource": "jquery.touchwipe",
+  "_direct": true
+}
