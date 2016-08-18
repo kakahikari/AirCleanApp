@@ -1,0 +1,31 @@
+.header {
+  position: relative;
+  .left, .right {
+    position: absolute;
+    top: 0;
+    margin: 18px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+  }
+  .left {
+    left: 0;
+    background: url("../images/icon-setting.svg") no-repeat center;
+    background-size: contain;
+  }
+  .right {
+    right: 0;
+    background: url("../images/icon-menu.svg") no-repeat center;
+    background-size: contain;
+  }
+  .center {
+    padding: 18px;
+    font-size: 1.5em;
+    text-align: center;
+  }
+  .time {
+    margin-bottom: 36px;
+    font-size: 1.0625em;
+    text-align: center;
+  }
+}

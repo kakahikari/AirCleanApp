@@ -1,0 +1,13 @@
+include ../setup/_set
+doctype html
+- pageAdd = isPage ? "../" : ""
+html
+  head
+    include ../setup/_head
+  body
+    .container
+      block content
+
+    
+    //- ========================================= JS
+    include ../setup/_js

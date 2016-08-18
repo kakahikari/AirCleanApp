@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="23px" height="22px" viewBox="0 0 23 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>icon/body_temp</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="1" y="9.33333333" width="13.4444444" height="13.4444444" rx="6.72222222"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="13.4444444" height="13.4444444" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon/body_temp" transform="translate(-1.000000, -1.000000)">
+            <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+            <path d="M20.5555556,2.61111111 L20.5555556,17.8888889" id="Line" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <ellipse id="Oval-126" stroke="#FFFFFF" stroke-width="2" cx="7.77999997" cy="5.77999997" rx="3.77999997" ry="3.77999997"></ellipse>
+            <use id="Rectangle-250" stroke="#FFFFFF" mask="url(#mask-2)" stroke-width="4" xlink:href="#path-1"></use>
+            <circle id="Oval-127" stroke="#FFFFFF" stroke-width="1" fill="#FFFFFF" fill-rule="evenodd" cx="20.5555556" cy="19.1111111" r="2.44444444"></circle>
+        </g>
+    </g>
+</svg>
