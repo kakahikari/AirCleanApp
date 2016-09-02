@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="23px" height="22px" viewBox="0 0 23 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
     <title>icon/body_temp</title>
     <desc>Created with Sketch.</desc>
-    <defs>
-        <rect id="path-1" x="1" y="9.33333333" width="13.4444444" height="13.4444444" rx="6.72222222"></rect>
-        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="13.4444444" height="13.4444444" fill="white">
-            <use xlink:href="#path-1"></use>
-        </mask>
-    </defs>
+    <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="icon/body_temp" transform="translate(-1.000000, -1.000000)">
-            <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
-            <path d="M20.5555556,2.61111111 L20.5555556,17.8888889" id="Line" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-            <ellipse id="Oval-126" stroke="#FFFFFF" stroke-width="2" cx="7.77999997" cy="5.77999997" rx="3.77999997" ry="3.77999997"></ellipse>
-            <use id="Rectangle-250" stroke="#FFFFFF" mask="url(#mask-2)" stroke-width="4" xlink:href="#path-1"></use>
-            <circle id="Oval-127" stroke="#FFFFFF" stroke-width="1" fill="#FFFFFF" fill-rule="evenodd" cx="20.5555556" cy="19.1111111" r="2.44444444"></circle>
+        <g id="首頁" transform="translate(-26.000000, -195.000000)">
+            <g id="Group-8" transform="translate(25.000000, 114.000000)">
+                <g id="icon/body_temp" transform="translate(0.000000, 80.000000)">
+                    <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+                    <path d="M21,17.194604 L21,2 C21,1.44771525 20.5522847,1 20,1 C19.4477153,1 19,1.44771525 19,2 L19,17.1548895 C17.8370567,17.5486411 17,18.649068 17,19.9449999 C17,21.5714785 18.3185214,22.8899999 19.9449999,22.8899999 C21.5714785,22.8899999 22.8899999,21.5714785 22.8899999,19.9449999 C22.8899999,18.6903015 22.1053621,17.618865 21,17.194604 L21,17.194604 Z" id="Combined-Shape" fill="#FFFFFF" fill-rule="evenodd"></path>
+                    <path d="M10.2963177,9.84482809 C12.7316185,10.8568964 14.4444444,13.2604993 14.4444444,16.0555556 L14.4444444,22.7777778 L1,22.7777778 L1,16.0555556 C1,13.2291374 2.74873693,10.810136 5.2183861,9.81637607 C3.88481296,8.96827836 3,7.47746874 3,5.77999997 C3,3.14007888 5.14007888,1 7.77999997,1 C10.4199211,1 12.5599999,3.14007888 12.5599999,5.77999997 C12.5599999,7.49661507 11.6551142,9.00188278 10.2963177,9.84482809 L10.2963177,9.84482809 L10.2963177,9.84482809 Z M3,20.777778 L12.4444447,20.777778 L12.4444444,16.0555556 C12.4444444,13.4521423 10.327279,11.3333333 7.72222222,11.3333333 C5.11880894,11.3333333 3,13.4504988 3,16.0555556 L3,20.777778 L3,20.777778 Z M5,5.77999997 C5,4.24464838 6.24464838,3 7.77999997,3 C9.31535156,3 10.5599999,4.24464838 10.5599999,5.77999997 C10.5599999,7.31535156 9.31535156,8.55999994 7.77999997,8.55999994 C6.24464838,8.55999994 5,7.31535156 5,5.77999997 L5,5.77999997 Z" id="Combined-Shape" fill="#FFFFFF" fill-rule="evenodd"></path>
+                </g>
+            </g>
         </g>
     </g>
 </svg>

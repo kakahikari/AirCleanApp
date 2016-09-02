@@ -1,14 +1,56 @@
 .container {
+  position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
   background: url("../images/bg/bg.png") no-repeat;
   background-size: cover;
-  color: white;
+  color: $default;
+  transition: transform .5s $default-time-function;
+  &.js-left {
+    transform: translate3d(-$right-menu-width, 0, 0);
+  }
+  &.js-bottom {
+    .main-status {
+      height: 0;
+    }
+    .group {
+      bottom: auto;
+    }
+  }
 }
-body {
+.bottom-container {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  color: $default;
+  transition: transform .5s $default-time-function;
+  &.js-active {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+.right-container {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: $right-menu-width;
+  height: 100vh;
+  background: black;
+  color: $default;
+  overflow: scroll;
+  transition: transform .5s $default-time-function;
+  &.js-active {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+html, body {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  font-family: sans-serif;
   font-size: 16px;
   font-weight: lighter;
+  // overflow: hidden;
 }
 .temperature-unit {
   display: inline-block;

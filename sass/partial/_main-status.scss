@@ -1,11 +1,18 @@
 .main-status {
   display: flex;
   flex-direction: column;
+  height: 107px;
+  overflow: hidden;
+  transition: all .5s $default-time-function;
   .row {
-    margin: 0 auto;
+    margin: 1em auto 0;
     display: flex;
     flex-direction: row;
-    width: 325px;
+    width: 100%;
+    max-width: $max-width;
+    &:nth-child(1) {
+      margin-top: 0;
+    }
     div {
       display: inline-flex;
       align-items: center;
@@ -23,8 +30,7 @@
       background: url("../images/icon-pm25.svg") no-repeat left;
       font-size: 3.375em;
       span {
-        margin-top: 35px;
-        align-self: flex-start;
+        margin-top: 2em;
         font-size: .25em;
       }
     }
@@ -34,22 +40,26 @@
       padding-left: 30px;
       background: url("../images/icon-apparent-temperature.svg") no-repeat left;
       font-size: 1.25em;
-      span {
-
-      }
     }
     .rain-probability {
       height: 28px;
       padding-left: 30px;
       background: url("../images/icon-rain-probability.svg") no-repeat left;
+      font-size: 1.25em;
       span {
-
+        margin-top: .5em;
+        font-size: .5em;
       }
     }
     .humidity {
       height: 28px;
       padding-left: 30px;
       background: url("../images/icon-humidity.svg") no-repeat left;
+      font-size: 1.25em;
+      span {
+        margin-top: .5em;
+        font-size: .5em;
+      }
     }
   }
 }

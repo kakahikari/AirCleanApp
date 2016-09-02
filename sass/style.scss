@@ -1,6 +1,14 @@
+$max-width: 325px;
+$right-menu-width: 272px;
 
+$default: #fff;
+
+$default-time-function: ease;
+
+@import "reset";
 @import "layout/layout";
-@import "layout/component";
 @import "partial/header";
 @import "partial/main-status";
-@import "partial/gloup";
+@import "partial/group";
+@import "partial/right-menu";
+@import "partial/bottom";

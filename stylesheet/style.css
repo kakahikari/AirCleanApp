@@ -1,12 +1,129 @@
+@charset "UTF-8";
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+body {
+  line-height: 1; }
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+nav ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+/* change colours to suit your needs */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none; }
+
+/* change colours to suit your needs */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold; }
+
+del {
+  text-decoration: line-through; }
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* change border colour to suit your needs */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0; }
+
+input, select {
+  vertical-align: middle; }
+
 .container {
+  position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
   background: url("../images/bg/bg.png") no-repeat;
   background-size: cover;
-  color: white; }
+  color: #fff;
+  transition: transform 0.5s ease; }
+  .container.js-left {
+    transform: translate3d(-272px, 0, 0); }
+  .container.js-bottom .main-status {
+    height: 0; }
+  .container.js-bottom .group {
+    bottom: auto; }
 
-body {
+.bottom-container {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  color: #fff;
+  transition: transform 0.5s ease; }
+  .bottom-container.js-active {
+    transform: translate3d(0, -100%, 0); }
+
+.right-container {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 272px;
+  height: 100vh;
+  background: black;
+  color: #fff;
+  overflow: scroll;
+  transition: transform 0.5s ease; }
+  .right-container.js-active {
+    transform: translate3d(-100%, 0, 0); }
+
+html, body {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  font-family: sans-serif;
   font-size: 16px;
   font-weight: lighter; }
 
@@ -14,81 +131,44 @@ body {
   display: inline-block;
   width: .5em; }
 
-.main-status {
-  display: flex;
-  flex-direction: column; }
-  .main-status .row {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    width: 325px; }
-    .main-status .row div {
-      display: inline-flex;
-      align-items: center;
-      flex: 1; }
-    .main-status .row .temperature {
-      height: 63px;
-      padding-left: 70px;
-      background: url("../images/icon-temperature.svg") no-repeat left;
-      font-size: 3.375em; }
-    .main-status .row .pm25 {
-      height: 63px;
-      padding-left: 70px;
-      background: url("../images/icon-pm25.svg") no-repeat left;
-      font-size: 3.375em; }
-      .main-status .row .pm25 span {
-        margin-top: 35px;
-        align-self: flex-start;
-        font-size: .25em; }
-    .main-status .row .apparent-temperature {
-      flex: 2;
-      height: 28px;
-      padding-left: 30px;
-      background: url("../images/icon-apparent-temperature.svg") no-repeat left;
-      font-size: 1.25em; }
-    .main-status .row .rain-probability {
-      height: 28px;
-      padding-left: 30px;
-      background: url("../images/icon-rain-probability.svg") no-repeat left; }
-    .main-status .row .humidity {
-      height: 28px;
-      padding-left: 30px;
-      background: url("../images/icon-humidity.svg") no-repeat left; }
-
-.header {
+.index-header {
   position: relative; }
-  .header .left, .header .right {
+  .index-header .setting-button, .index-header .menu-button {
     position: absolute;
     top: 0;
     margin: 18px;
     width: 32px;
     height: 32px;
     cursor: pointer; }
-  .header .left {
+  .index-header .setting-button {
     left: 0;
-    background: url("../images/icon-setting.svg") no-repeat center;
-    background-size: contain; }
-  .header .right {
+    background: url("../images/icon-setting.svg") no-repeat center; }
+  .index-header .menu-button {
     right: 0;
-    background: url("../images/icon-menu.svg") no-repeat center;
-    background-size: contain; }
-  .header .center {
+    background: url("../images/icon-menu.svg") no-repeat center; }
+  .index-header .center {
     padding: 18px;
     font-size: 1.5em;
     text-align: center; }
-  .header .time {
+  .index-header .time {
     margin-bottom: 36px;
     font-size: 1.0625em;
     text-align: center; }
 
 .main-status {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  height: 107px;
+  overflow: hidden;
+  transition: all 0.5s ease; }
   .main-status .row {
-    margin: 0 auto;
+    margin: 1em auto 0;
     display: flex;
     flex-direction: row;
-    width: 325px; }
+    width: 100%;
+    max-width: 325px; }
+    .main-status .row:nth-child(1) {
+      margin-top: 0; }
     .main-status .row div {
       display: inline-flex;
       align-items: center;
@@ -104,8 +184,7 @@ body {
       background: url("../images/icon-pm25.svg") no-repeat left;
       font-size: 3.375em; }
       .main-status .row .pm25 span {
-        margin-top: 35px;
-        align-self: flex-start;
+        margin-top: 2em;
         font-size: .25em; }
     .main-status .row .apparent-temperature {
       flex: 2;
@@ -116,8 +195,143 @@ body {
     .main-status .row .rain-probability {
       height: 28px;
       padding-left: 30px;
-      background: url("../images/icon-rain-probability.svg") no-repeat left; }
+      background: url("../images/icon-rain-probability.svg") no-repeat left;
+      font-size: 1.25em; }
+      .main-status .row .rain-probability span {
+        margin-top: .5em;
+        font-size: .5em; }
     .main-status .row .humidity {
       height: 28px;
       padding-left: 30px;
-      background: url("../images/icon-humidity.svg") no-repeat left; }
+      background: url("../images/icon-humidity.svg") no-repeat left;
+      font-size: 1.25em; }
+      .main-status .row .humidity span {
+        margin-top: .5em;
+        font-size: .5em; }
+
+.group {
+  position: absolute;
+  left: 0;
+  bottom: .75em;
+  width: 100%;
+  overflow: hidden;
+  transition: all 0.5s ease; }
+  .group .group__name {
+    margin: 0 auto;
+    max-width: 325px;
+    overflow: hidden; }
+    .group .group__name span {
+      position: relative;
+      display: inline-block;
+      font-size: 1.25em; }
+      .group .group__name span:after {
+        content: "";
+        position: absolute;
+        top: .5em;
+        left: 100%;
+        left: calc(100% + 12px);
+        display: inline-block;
+        width: 325px;
+        height: 1px;
+        background: #fff; }
+  .group .group__data {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 325px; }
+    .group .group__data div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      width: 33.33333%;
+      background: url("../images/group-item-bg.svg") no-repeat center;
+      background-origin: content-box;
+      background-size: contain; }
+    .group .group__data .pm25:after {
+      content: "pm2.5"; }
+    .group .group__data .co2:after {
+      content: "CO2"; }
+    .group .group__data .gas:after {
+      content: "GAS"; }
+    .group .group__data .humidity:after {
+      content: "室內濕度"; }
+    .group .group__data .filter:after {
+      content: "濾網"; }
+
+.right-menu {
+  position: relative;
+  width: 100%;
+  padding: 0 11px; }
+  .right-menu .header .add-button, .right-menu .header .edit-button {
+    position: absolute;
+    top: 0;
+    margin: 18px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer; }
+  .right-menu .header .add-button {
+    left: 0;
+    background: url("../images/icon-add.svg") no-repeat center; }
+  .right-menu .header .edit-button {
+    right: 0;
+    background: url("../images/icon-edit.svg") no-repeat center; }
+  .right-menu .header .switch {
+    margin: 0 auto;
+    padding: 21px;
+    text-align: center; }
+  .right-menu .group {
+    margin: 47px auto 0;
+    position: relative;
+    width: 100%;
+    overflow: hidden; }
+    .right-menu .group .group__name {
+      margin: 0 auto;
+      max-width: 325px;
+      overflow: hidden; }
+      .right-menu .group .group__name span {
+        position: relative;
+        display: inline-block;
+        font-size: 1.25em; }
+        .right-menu .group .group__name span:after {
+          content: "";
+          position: absolute;
+          top: .5em;
+          left: 100%;
+          left: calc(100% + 12px);
+          display: inline-block;
+          width: 325px;
+          height: 1px;
+          background: #fff; }
+    .right-menu .group .group__item {
+      margin: 28px auto 24px;
+      text-align: center; }
+      .right-menu .group .group__item .link {
+        margin-top: 6px;
+        position: relative;
+        padding: 9px 0;
+        text-align: left; }
+        .right-menu .group .group__item .link:after {
+          content: "";
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 32px;
+          height: 32px;
+          background: url("../images/icon-next.svg") no-repeat center; }
+
+.bottom {
+  margin-bottom: .75em; }
+  .bottom .bottom__item {
+    position: relative;
+    padding: 12px 28px;
+    background: rgba(0, 0, 0, 0.38); }
+    .bottom .bottom__item span {
+      display: block;
+      font-size: 1.25em; }
+    .bottom .bottom__item .data img {
+      margin: 18px 0; }
+    .bottom .bottom__item .switch {
+      position: absolute;
+      right: 28px;
+      top: 14px; }

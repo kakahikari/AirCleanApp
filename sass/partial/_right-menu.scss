@@ -1,0 +1,76 @@
+.right-menu {
+  position: relative;
+  width: 100%;
+  padding: 0 11px;
+  .header {
+    .add-button, .edit-button {
+      position: absolute;
+      top: 0;
+      margin: 18px;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+    }
+    .add-button {
+      left: 0;
+      background: url("../images/icon-add.svg") no-repeat center;
+      // background-size: contain;
+    }
+    .edit-button {
+      right: 0;
+      background: url("../images/icon-edit.svg") no-repeat center;
+      // background-size: contain;
+    }
+    .switch {
+      margin: 0 auto;
+      padding: 21px;
+      text-align: center;
+    }
+  }
+  .group {
+    margin: 47px auto 0;
+    position: relative;;
+    width: 100%;
+    overflow: hidden;
+    .group__name {
+      margin: 0 auto;
+      max-width: $max-width;
+      overflow: hidden;
+      span {
+        position: relative;
+        display: inline-block;
+        font-size: 1.25em;
+        &:after {
+          content: "";
+          position: absolute;
+          top: .5em;
+          left: 100%;
+          left: calc(100% + 12px);
+          display: inline-block;
+          width: $max-width;
+          height: 1px;
+          background: #fff;
+        }
+      }
+    }
+    .group__item{
+      margin: 28px auto 24px;
+      text-align: center;
+      .link {
+        margin-top: 6px;
+        position: relative;
+        padding: 9px 0;
+        text-align: left;
+        &:after {
+          content: "";
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 32px;
+          height: 32px;
+          background: url("../images/icon-next.svg") no-repeat center;
+        }
+      }
+    }
+  }
+}

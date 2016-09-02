@@ -1,6 +1,6 @@
-.header {
+.index-header {
   position: relative;
-  .left, .right {
+  .setting-button, .menu-button {
     position: absolute;
     top: 0;
     margin: 18px;
@@ -8,15 +8,15 @@
     height: 32px;
     cursor: pointer;
   }
-  .left {
+  .setting-button {
     left: 0;
     background: url("../images/icon-setting.svg") no-repeat center;
-    background-size: contain;
+    // background-size: contain;
   }
-  .right {
+  .menu-button {
     right: 0;
     background: url("../images/icon-menu.svg") no-repeat center;
-    background-size: contain;
+    // background-size: contain;
   }
   .center {
     padding: 18px;

@@ -5,17 +5,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AirCleanApp</title>
-    <link rel="stylesheet" type="text/css" href="bower_components/HTML5-Reset/assets/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="bower_components/HTML5-Reset/assets/css/style.css">
+    <link rel="icon" href="images/favicon.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="stylesheet/style.css">
   </head>
   <body>
     <div class="container">
-      <div class="header">
-        <div class="left"></div>
+      <div class="index-header">
+        <div class="setting-button"></div>
         <div class="center">台北市 大安區</div>
         <div class="time">2016.06.01 週三 07:00 AM</div>
-        <div class="right"></div>
+        <div class="menu-button"></div>
       </div>
       <div class="main-status">
         <div class="row">
@@ -28,13 +27,50 @@
           <div class="humidity">70<span>%</span></div>
         </div>
       </div>
-      <div class="gluop">
-        <div class="gluopname">群組1 台北客廳
+      <div class="group">
+        <div class="group__name"><span>群組1 台北客廳</span></div>
+        <div class="group__data">
           <div class="pm25">87<span>ppm</span></div>
-          <div class="pmco2">35<span>ppm</span></div>
+          <div class="co2">35<span>ppm</span></div>
           <div class="gas">3<span>ppm</span></div>
           <div class="humidity">80<span>%</span></div>
           <div class="filter">50<span>%</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-container">
+      <div class="bottom">
+        <div class="bottom__item"><span>空氣濾淨機</span>
+          <div class="data"><img src="../images/fake/05.png"></div>
+          <div class="switch"><img src="../images/fake/04.png"></div>
+        </div>
+        <div class="bottom__item"><span>除溼機</span>
+          <div class="data"><img src="../images/fake/07.png"></div>
+          <div class="switch"><img src="../images/fake/06.png"></div>
+        </div>
+      </div>
+    </div>
+    <div class="right-container">
+      <div class="right-menu">
+        <div class="header">
+          <div class="add-button"></div>
+          <div class="switch"><img src="../images/fake/01.png"></div>
+          <div class="edit-button"></div>
+        </div>
+        <div class="group">
+          <div class="group__name"><span>目前選定群組</span></div>
+          <div class="group__item"><img src="../images/fake/02.png">
+            <div class="link">群組1</div>
+          </div>
+        </div>
+        <div class="group">
+          <div class="group__name"><span>群組列表</span></div>
+          <div class="group__item"><img src="../images/fake/03.png">
+            <div class="link">群組2</div>
+          </div>
+          <div class="group__item"><img src="../images/fake/03.png">
+            <div class="link">群組3</div>
+          </div>
         </div>
       </div>
     </div>
