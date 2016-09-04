@@ -97,6 +97,32 @@ input, select {
   .container.js-bottom .group {
     bottom: auto; }
 
+.setting {
+  background: #000; }
+  .setting .item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 44px;
+    padding-left: 60px;
+    border-bottom: #323233 1px solid; }
+    .setting .item.sound {
+      background: url("../images/setting/sound.svg") no-repeat left 15px center; }
+    .setting .item.push {
+      background: url("../images/setting/push.svg") no-repeat left 15px center; }
+    .setting .item.timing {
+      background: url("../images/setting/timing.svg") no-repeat left 15px center; }
+    .setting .item.device {
+      background: url("../images/setting/device.svg") no-repeat left 15px center; }
+    .setting .item.import-export {
+      background: url("../images/setting/import-export.svg") no-repeat left 15px center; }
+    .setting .item.unit {
+      background: url("../images/setting/unit.svg") no-repeat left 15px center; }
+    .setting .item.all-on-off {
+      background: url("../images/setting/all-on-off.svg") no-repeat left 15px center; }
+    .setting .item.help {
+      background: url("../images/setting/help.svg") no-repeat left 15px center; }
+
 .bottom-container {
   position: absolute;
   top: 100%;
@@ -112,7 +138,7 @@ input, select {
   left: 100%;
   width: 272px;
   height: 100vh;
-  background: black;
+  background: #000;
   color: #fff;
   overflow: scroll;
   transition: transform 0.5s ease; }
@@ -126,6 +152,7 @@ html, body {
   font-family: sans-serif;
   font-size: 16px;
   font-weight: lighter;
+  background: #000;
   overflow: hidden; }
 
 .temperature-unit {
@@ -138,6 +165,7 @@ html, body {
     position: absolute;
     top: 0;
     margin: 18px;
+    display: block;
     width: 32px;
     height: 32px;
     cursor: pointer; }
@@ -336,3 +364,25 @@ html, body {
       position: absolute;
       right: 28px;
       top: 14px; }
+
+.setting-header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 68px;
+  border-bottom: #323233 1px solid; }
+  .setting-header .back-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 18px;
+    display: block;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: url("../images/icon-back.svg") no-repeat center; }
+  .setting-header .center {
+    font-size: 1.5em;
+    text-align: center; }

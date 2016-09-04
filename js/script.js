@@ -23,6 +23,9 @@ $(function () {
     $(document).on('click', '.index-header .menu-button', function () {
         rightContentToggle();
     });
+    $(document).on('click', '.group .group__name', function () {
+        bottomContentToggle();
+    });
 });
 function rightContentToggle() {
     $('.container').toggleClass('js-left');

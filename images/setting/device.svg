@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="29px" height="29px" viewBox="0 0 29 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>Glances Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="設定內容" transform="translate(-15.000000, -239.000000)">
+            <g id="Cells" transform="translate(0.000000, 99.000000)">
+                <g id="Glances" transform="translate(0.000000, 133.000000)">
+                    <g id="Glances-Icon" transform="translate(15.000000, 7.000000)">
+                        <circle id="Oval-516" fill="#1E8CFF" cx="14.5" cy="14.5" r="14.5"></circle>
+                        <path d="M15,14 L15,7.49907684 C15,7.2236826 14.7761424,7 14.5,7 C14.2319336,7 14,7.22344431 14,7.49907684 L14,14 L7.49907684,14 C7.2236826,14 7,14.2238576 7,14.5 C7,14.7680664 7.22344431,15 7.49907684,15 L14,15 L14,21.5009232 C14,21.7763174 14.2238576,22 14.5,22 C14.7680664,22 15,21.7765557 15,21.5009232 L15,15 L21.5009232,15 C21.7763174,15 22,14.7761424 22,14.5 C22,14.2319336 21.7765557,14 21.5009232,14 L15,14 L15,14 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

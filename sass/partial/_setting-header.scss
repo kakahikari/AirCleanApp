@@ -1,0 +1,25 @@
+.setting-header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 68px;
+  border-bottom: #323233 1px solid;
+  .back-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 18px;
+    display: block;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: url("../images/icon-back.svg") no-repeat center;
+    // background-size: contain;
+  }
+  .center {
+    font-size: 1.5em;
+    text-align: center;
+  }
+}
