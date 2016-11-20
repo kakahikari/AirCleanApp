@@ -1,0 +1,1064 @@
+//Animate.css - http://daneden.me/animate
+//Licensed under the MIT license
+//Copyright (c) 2013 Daniel Eden
+//Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+//The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+//THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+@mixin move($name:name,$speed:600ms,$iteration:-1,$delay:0,$fill:both,$direction:alternate) {
+  @include experimental(animation-name,$name,$moz:false,$o:false,$ms:false);
+  @include experimental(animation-duration,$speed,$moz:false,$o:false,$ms:false);
+  @if $iteration == -1 {    
+    @include experimental(animation-iteration-count,infinite,$moz:false,$o:false,$ms:false);
+  }
+  @else {
+    @include experimental(animation-iteration-count,$iteration,$moz:false,$o:false,$ms:false);
+  }
+  @include experimental(animation-fill-mode,$fill,$moz:false,$o:false,$ms:false);
+  @include experimental(animation-direction,$direction,$moz:false,$o:false,$ms:false);
+  @include experimental(animation-delay,$delay,$moz:false,$o:false,$ms:false);
+}
+@mixin action($actionName:newAction) {
+  @-webkit-keyframes #{$actionName} {
+    @content; 
+  }
+  @keyframes #{$actionName} {
+    @content; 
+  }
+  .#{$actionName} {
+    @include experimental(animation-name,$actionName,$moz:false,$o:false,$ms:false);
+    @if $actionName == lightSpeedOut {
+      @include experimental(animation-timing-function,ease-in,$moz:false,$o:false,$ms:false);
+    }
+    @if $actionName == lightSpeedIn {
+      @include experimental(animation-timing-function,ease-out,$moz:false,$o:false,$ms:false);
+    }
+    @if $actionName == (flipOutY or flipOutX or flipInY or flipInX) {
+      @include experimental(backface-visibility,visible !important,$moz:false,$o:false);
+    }
+    @if $actionName == swing {
+      @include experimental(transform-origin,top center,$moz:false,$o:false);
+    }
+  }    
+  @if $actionName == flip {
+    .animated.flip {
+      @include experimental(backface-visibility,visible !important,$moz:false,$o:false);
+    }
+  }
+  @if $actionName == hinge {
+    .animated.hinge {
+      @include experimental(animation-duration,2s,$moz:false,$o:false,$ms:false);
+    }
+  }
+}
+@mixin animate($actionName:action) {
+  @if $actionName == blurIn {
+    @include action($actionName) {
+      0% {
+        @include filter(blur(10px) grayscale(0.5));
+        @include transform(scale(.9) translateY(20px));
+        @include opacity(0);
+      }
+      100% {
+        @include filter(blur(0) grayscale(0));
+        @include transform(scale(1) translateY(0));
+        @include opacity(1);
+      }
+    }
+  }
+  @else if $actionName == upDown {
+    @include action($actionName) {
+      0% {
+        @include transform(translateY(-10px));
+        @include opacity(.5);
+      }
+
+      100% {
+        @include transform(translateY(10px));
+        @include opacity(1);
+      }
+    }
+  }
+  @else if $actionName == leftRight {
+    @include action($actionName) {
+      0% {
+        @include transform(translateX(-10px));
+        @include opacity(.5);
+      }
+
+      100% {
+        @include transform(translateX(10px));
+        @include opacity(1);
+      }
+    }
+  }
+  @else if $actionName == zoomInLeft {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include transform(scale3d(.1, .1, .1) translate3d(-1000px, 0, 0));
+        @include experimental(animation-timing-function, cubic-bezier(0.550, 0.055, 0.675, 0.190), $moz:false, $o:false, $ms:false);
+      }
+      60% {
+        opacity: 1;
+        @include transform(scale3d(.475, .475, .475) translate3d(10px, 0, 0));
+        @include experimental(animation-timing-function, cubic-bezier(0.175, 0.885, 0.320, 1), $moz:false, $o:false, $ms:false);
+      }
+    }
+  }
+  @else if $actionName == zoomInDown {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include transform(scale3d(.1, .1, .1) translate3d(0, -1000px, 0));
+        @include experimental(animation-timing-function, cubic-bezier(0.550, 0.055, 0.675, 0.190), $moz:false, $o:false, $ms:false);
+      }
+      60% {
+        opacity: 1;
+        @include transform(scale3d(.475, .475, .475) translate3d(0, 60px, 0));
+        @include experimental(animation-timing-function, cubic-bezier(0.175, 0.885, 0.320, 1), $moz:false, $o:false, $ms:false);
+      }
+    }
+  }
+  @else if $actionName == zoomIn {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include transform(scale3d(.3, .3, .3));
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+  }
+  @else if $actionName == rollOut {
+    @include action($actionName) {
+      0% {
+        opacity: 1;
+        @include transform(translateX(0px) rotate(0deg));
+      }
+      100% {
+        opacity: 0;
+        @include transform(translateX(100%) rotate(120deg));
+      }
+    }
+  }
+  @else if $actionName == rollIn {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include transform(translateX(-100%) rotate(-120deg));
+      }
+      100% {
+        opacity: 1;
+        @include transform(translateX(0px) rotate(0deg));
+      }
+    }
+  }
+  @else if $actionName == hinge {
+    @include action($actionName) {
+      0% {
+        @include transform(rotate(0));
+        @include experimental(transform-origin, top left, $moz:false, $o:false);
+        @include experimental(animation-timing-function, ease-in-out, $moz:false, $o:false);
+      }
+      20%, 60% {
+        @include transform(rotate(80deg));
+        @include experimental(transform-origin, top left, $moz:false, $o:false);
+        @include experimental(animation-timing-function, ease-in-out, $moz:false, $o:false);
+      }
+      40% {
+        @include transform(rotate(60deg));
+        @include experimental(transform-origin, top left, $moz:false, $o:false);
+        @include experimental(animation-timing-function, ease-in-out, $moz:false, $o:false);
+      }
+      80% {
+        opacity: 1;
+        @include transform(rotate(60deg) translateY(0));
+        @include experimental(transform-origin, top left, $moz:false, $o:false);
+        @include experimental(animation-timing-function, ease-in-out, $moz:false, $o:false);
+      }
+      100% {
+        opacity: 0;
+        @include transform(translateY(700px));
+      }
+    }
+  }
+  @else if $actionName == slideOutDown {
+    @include action($actionName) {
+      0% {
+        @include transform(translateY(0));
+      }
+      100% {
+        opacity: 0;
+        @include transform(translateY(2000px));
+      }
+    }
+  }
+  @else if $actionName == slideInUp {
+    @include action($actionName) {
+      0% {
+        @include transform(translateY(2000px));
+      }
+      100% {
+        opacity: 0;
+        @include transform(translateY(0));
+      }
+    }
+  }
+  @else if $actionName == slideOutUp {
+    @include action($actionName) {
+      0% {
+        @include transform(translateY(0));
+      }
+      100% {
+        opacity: 0;
+        @include transform(translateY(-2000px));
+      }
+    }
+  }
+  @else if $actionName == slideOutRight {
+    @include action($actionName) {
+      0% {
+        @include transform(translateX(0));
+      }
+      100% {
+        opacity: 0;
+        @include transform(translateX(2000px));
+      }
+    }
+  }
+  @else if $actionName == slideOutLeft {
+    @include action($actionName) {
+      0% {
+        @include transform(translateX(0));
+      }
+      100% {
+        opacity: 0;
+        @include transform(translateX(-2000px));
+      }
+    }
+  }
+  @else if $actionName == slideInRight {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include transform(translateX(2000px));
+      }
+      100% {
+        @include transform(translateX(0));
+      }
+    }
+  }
+  @else if $actionName == slideInLeft {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include transform(translateX(-2000px));
+      }
+      100% {
+        @include transform(translateX(0));
+      }
+    }
+  }
+  @else if $actionName == slideInDown {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include transform(translateY(-2000px));
+      }
+      100% {
+        @include transform(translateY(0));
+      }
+    }
+  }
+  @else if $actionName == rotateOutUpRight {
+    @include action($actionName) {
+      0% {
+        opacity: 1;
+        @include experimental(transform-origin, right bottom, $moz:false, $o:false);
+        @include transform(rotate(0));
+      }
+
+      100% {
+        opacity: 0;
+        @include experimental(transform-origin, right bottom, $moz:false, $o:false);
+        @include transform(rotate(90deg));
+      }
+    }
+  }
+  @else if $actionName == rotateOutUpLeft {
+    @include action($actionName) {
+      0% {
+        opacity: 1;
+        @include experimental(transform-origin, left bottom, $moz:false, $o:false);
+        @include transform(rotate(0));
+      }
+      100% {
+        opacity: 0;
+        @include experimental(transform-origin, left bottom, $moz:false, $o:false);
+        @include transform(rotate(-90deg));
+      }
+    }
+  }
+  @else if $actionName == rotateOutDownRight {
+    @include action($actionName) {
+      0% {
+        opacity: 1;
+        @include experimental(transform-origin, right bottom, $moz:false, $o:false);
+        @include transform(rotate(0));
+      }
+      100% {
+        opacity: 0;
+        @include experimental(transform-origin, right bottom, $moz:false, $o:false);
+        @include transform(rotate(-90deg));
+      }
+    }
+  }
+  @else if $actionName == rotateOutDownLeft {
+    @include action($actionName) {
+      0% {
+        opacity: 1;
+        @include experimental(transform-origin, left bottom, $moz:false, $o:false);
+        @include transform(rotate(0));
+      }
+      100% {
+        opacity: 0;
+        @include experimental(transform-origin, left bottom, $moz:false, $o:false);
+        @include transform(rotate(90deg));
+      }
+    }
+  }
+  @else if $actionName == rotateOut {
+    @include action($actionName) {
+      0% {
+        opacity: 1;
+        @include experimental(transform-origin, center center, $moz:false, $o:false);
+        @include transform(rotate(0));
+      }
+      100% {
+        opacity: 0;
+        @include experimental(transform-origin, center center, $moz:false, $o:false);
+        @include transform(rotate(200deg));
+      }
+    }
+  }
+  @else if $actionName == rotateInUpRight {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include experimental(transform-origin, right bottom, $moz:false, $o:false);
+        @include transform(rotate(-90deg));
+      }
+      100% {
+        opacity: 1;
+        @include experimental(transform-origin, right bottom, $moz:false, $o:false);
+        @include transform(rotate(0));
+      }
+    }
+  }
+  @else if $actionName == rotateInUpLeft {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include experimental(transform-origin, left bottom, $moz:false, $o:false);
+        @include transform(rotate(90deg));
+      }
+
+      100% {
+        opacity: 1;
+        @include experimental(transform-origin, left bottom, $moz:false, $o:false);
+        @include transform(rotate(0));
+      }
+    }
+  }
+  @else if $actionName == rotateInDownRight {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include experimental(transform-origin, right bottom, $moz:false, $o:false);
+        @include transform(rotate(90deg));
+      }
+      100% {
+        opacity: 1;
+        @include experimental(transform-origin, right bottom, $moz:false, $o:false);
+        @include transform(rotate(0));
+      }
+    }
+  }
+  @else if $actionName == rotateInDownLeft {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include experimental(transform-origin, left bottom, $moz:false, $o:false);
+        @include transform(rotate(-90deg));
+      }
+      100% {
+        opacity: 1;
+        @include experimental(transform-origin, left bottom, $moz:false, $o:false);
+        @include transform(rotate(0));
+      }
+    }
+  }
+  @else if $actionName == rotateIn {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include experimental(transform-origin, center center, $moz:false, $o:false);
+        @include transform(rotate(-200deg));
+      }
+      100% {
+        opacity: 1;
+        @include experimental(transform-origin, center center, $moz:false, $o:false);
+        @include transform(rotate(0));
+      }
+    }
+  }
+  @else if $actionName == lightSpeedOut {
+    @include action($actionName) {
+      0% {
+        opacity: 1;
+        @include transform(translateX(0%) skewX(0deg));
+      }
+      100% {
+        opacity: 0;
+        @include transform(translateX(100%) skewX(-30deg));
+      }
+    }
+  }
+  @else if $actionName == lightSpeedIn {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include transform(translateX(100%) skewX(-30deg));
+      }
+      60% {
+        opacity: 1;
+        @include transform(translateX(-20%) skewX(30deg));
+      }
+      80% {
+        opacity: 1;
+        @include transform(translateX(0%) skewX(-15deg));
+      }
+      100% {
+        opacity: 1;
+        @include transform(translateX(0%) skewX(0deg));
+      }
+    }
+  }
+  @else if $actionName == flipOutY {
+    @include action($actionName) {
+      0% {
+        opacity: 1;
+        @include transform(perspective(400px) rotateY(0deg));
+      }
+      100% {
+        opacity: 0;
+        @include transform(perspective(400px) rotateY(90deg));
+      }
+    }
+  }
+  @else if $actionName == flipOutX {
+    @include action($actionName) {
+      0% {
+        opacity: 1;
+        @include transform(perspective(400px) rotateX(0deg));
+      }
+      100% {
+        opacity: 0;
+        @include transform(perspective(400px) rotateX(90deg));
+      }
+    }
+  }
+  @else if $actionName == flipInY {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include transform(perspective(400px) rotateY(90deg));
+      }
+      40% {
+        @include transform(perspective(400px) rotateY(-10deg));
+      }
+      70% {
+        @include transform(perspective(400px) rotateY(10deg));
+      }
+      100% {
+        opacity: 1;
+        @include transform(perspective(400px) rotateY(0deg));
+      }
+    }
+  }
+  @else if $actionName == flipInX {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include transform(perspective(400px) rotateX(90deg));
+      }
+      40% {
+        @include transform(perspective(400px) rotateX(-10deg));
+      }
+      70% {
+        @include transform(perspective(400px) rotateX(10deg));
+      }
+      100% {
+        opacity: 1;
+        @include transform(perspective(400px) rotateX(0deg));
+      }
+    }
+  }
+  @else if $actionName == flip {
+    @include action($actionName) {
+      0% {
+        @include transform(perspective(400px) translateZ(0) rotateY(0) scale(1));
+        @include experimental(animation-timing-function, ease-out, $moz:false, $o:false);
+      }
+      40% {
+        @include transform(perspective(400px) translateZ(150px) rotateY(170deg) scale(1));
+        @include experimental(animation-timing-function, ease-out, $moz:false, $o:false);
+      }
+      50% {
+        @include transform(perspective(400px) translateZ(150px) rotateY(190deg) scale(1));
+        @include experimental(animation-timing-function, ease-in, $moz:false, $o:false);
+      }
+      80% {
+        @include transform(perspective(400px) translateZ(0) rotateY(360deg) scale(.95));
+        @include experimental(animation-timing-function, ease-in, $moz:false, $o:false);
+      }
+      100% {
+        @include transform(perspective(400px) translateZ(0) rotateY(360deg) scale(1));
+        @include experimental(animation-timing-function, ease-in, $moz:false, $o:false);
+      }
+    }
+  }
+  @else if $actionName == fadeOutUpBig {
+    @include action($actionName) {
+      0% {
+        opacity: 1;
+        @include transform(translateY(0));
+      }
+      100% {
+        opacity: 0;
+        @include transform(translateY(-2000px));
+      }
+    }
+  }
+  @else if $actionName == fadeOutUp {
+    @include action($actionName) {
+      0% {
+        opacity: 1;
+        @include transform(translateY(0));
+      }
+      100% {
+        opacity: 0;
+        @include transform(translateY(-20px));
+      }
+    }
+  }
+  @else if $actionName == fadeOutRightBig {
+    @include action($actionName) {
+      0% {
+        opacity: 1;
+        @include transform(translateX(0));
+      }
+      100% {
+        opacity: 0;
+        @include transform(translateX(2000px));
+      }
+    }
+  }
+  @else if $actionName == fadeOutRight {
+    @include action($actionName) {
+      0% {
+        opacity: 1;
+        @include transform(translateX(0));
+      }
+      100% {
+        opacity: 0;
+        @include transform(translateX(20px));
+      }
+    }
+  }
+  @else if $actionName == fadeOutLeftBig {
+    @include action($actionName) {
+      0% {
+        opacity: 1;
+        @include transform(translateX(0));
+      }
+
+      100% {
+        opacity: 0;
+        @include transform(translateX(-2000px));
+      }
+    }
+  }
+  @else if $actionName == fadeOutLeft {
+    @include action($actionName) {
+      0% {
+        opacity: 1;
+        @include transform(translateX(0));
+      }
+      100% {
+        opacity: 0;
+        @include transform(translateX(-20px));
+      }
+    }
+  }
+  @else if $actionName == fadeOutDownBig {
+    @include action($actionName) {
+      0% {
+        opacity: 1;
+        @include transform(translateY(0));
+      }
+      100% {
+        opacity: 0;
+        @include transform(translateY(2000px));
+      }
+    }
+  }
+  @else if $actionName == fadeOutDown {
+    @include action($actionName) {
+      0% {
+        opacity: 1;
+        @include transform(translateY(0));
+      }
+
+      100% {
+        opacity: 0;
+        @include transform(translateY(20px));
+      }
+    }
+  }
+  @else if $actionName == fadeOut {
+    @include action($actionName) {
+      0% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+  }
+  @else if $actionName == fadeInUpBig {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include transform(translateY(2000px));
+      }
+      100% {
+        opacity: 1;
+        @include transform(translateY(0));
+      }
+    }
+  }
+  @else if $actionName == fadeInUp {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include transform(translateY(20px));
+      }
+      100% {
+        opacity: 1;
+        @include transform(translateY(0));
+      }
+    }
+  }
+  @else if $actionName == fadeInRightBig {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include transform(translateX(2000px));
+      }
+      100% {
+        opacity: 1;
+        @include transform(translateX(0));
+      }
+    }
+  }
+  @else if $actionName == fadeInRight {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include transform(translateX(20px));
+      }
+      100% {
+        opacity: 1;
+        @include transform(translateX(0));
+      }
+    }
+  }
+  @else if $actionName == fadeInLeftBig {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include transform(translateX(-2000px));
+      }
+      100% {
+        opacity: 1;
+        @include transform(translateX(0));
+      }
+    }
+  }
+  @else if $actionName == fadeInLeft {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include transform(translateX(-20px));
+      }
+      100% {
+        opacity: 1;
+        @include transform(translateX(0));
+      }
+    }
+  }
+  @else if $actionName == fadeInDownBig {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include transform(translateY(-2000px));
+      }
+      100% {
+        opacity: 1;
+        @include transform(translateY(0));
+      }
+    }
+  }
+  @else if $actionName == fadeInDown {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include transform(translateY(-20px));
+      }
+
+      100% {
+        opacity: 1;
+        @include transform(translateY(0));
+      }
+    }
+  }
+  @else if $actionName == fadeIn {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+  @else if $actionName == bounceOutUp {
+    @include action($actionName) {
+      0% {
+        @include transform(translateY(0));
+      }
+      20% {
+        opacity: 1;
+        @include transform(translateY(20px));
+      }
+      100% {
+        opacity: 0;
+        @include transform(translateY(-2000px));
+      }
+    }
+  }
+  @else if $actionName == bounceOutRight {
+    @include action($actionName) {
+      0% {
+        @include transform(translateX(0));
+      }
+      20% {
+        opacity: 1;
+        @include transform(translateX(-20px));
+      }
+      100% {
+        opacity: 0;
+        @include transform(translateX(2000px));
+      }
+    }
+  }
+  @else if $actionName == bounceOutLeft {
+    @include action($actionName) {
+      0% {
+        @include transform(translateX(0));
+      }
+      20% {
+        opacity: 1;
+        @include transform(translateX(20px));
+      }
+      100% {
+        opacity: 0;
+        @include transform(translateX(-2000px));
+      }
+    }
+  }
+  @else if $actionName == bounceOutDown {
+    @include action($actionName) {
+      0% {
+        @include transform(translateY(0));
+      }
+      20% {
+        opacity: 1;
+        @include transform(translateY(-20px));
+      }
+      100% {
+        opacity: 0;
+        @include transform(translateY(2000px));
+      }
+    }
+  }
+  @else if $actionName == bounceOut {
+    @include action($actionName) {
+      0% {
+        @include transform(scale(1));
+      }
+      25% {
+        @include transform(scale(.95));
+      }
+      50% {
+        opacity: 1;
+        @include transform(scale(1.1));
+      }
+      100% {
+        opacity: 0;
+        @include transform(scale(.3));
+      }
+    }
+  }
+  @else if $actionName == bounceInUp {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include transform(translateY(2000px));
+      }
+      60% {
+        opacity: 1;
+        @include transform(translateY(-30px));
+      }
+      80% {
+        @include transform(translateY(10px));
+      }
+      100% {
+        @include transform(translateY(0));
+      }
+    }
+  }
+  @else if $actionName == bounceInRight {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include transform(translateX(2000px));
+      }
+      60% {
+        opacity: 1;
+        @include transform(translateX(-30px));
+      }
+      80% {
+        @include transform(translateX(10px));
+      }
+      100% {
+        @include transform(translateX(0));
+      }
+    }
+  }
+  @else if $actionName == bounceInLeft {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include transform(translateX(-2000px));
+      }
+      60% {
+        opacity: 1;
+        @include transform(translateX(30px));
+      }
+      80% {
+        @include transform(translateX(-10px));
+      }
+      100% {
+        @include transform(translateX(0));
+      }
+    }
+  }
+  @else if $actionName == bounceInDown {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include transform(translateY(-2000px));
+      }
+      60% {
+        opacity: 1;
+        @include transform(translateY(30px));
+      }
+      80% {
+        @include transform(translateY(-10px));
+      }
+      100% {
+        @include transform(translateY(0));
+      }
+    }
+  }
+  @else if $actionName == bounceIn {
+    @include action($actionName) {
+      0% {
+        opacity: 0;
+        @include transform(scale(.3));
+      }
+      50% {
+        opacity: 1;
+        @include transform(scale(1.05));
+      }
+      70% {
+        @include transform(scale(.9));
+      }
+      100% {
+        opacity: 1;
+        @include transform(scale(1));
+      }
+    }
+  }
+  @else if $actionName == wobble {
+    @include action($actionName) {
+      0% {
+        @include transform(translateX(0%));
+      }
+      15% {
+        @include transform(translateX(-25%) rotate(-5deg));
+      }
+      30% {
+        @include transform(translateX(20%) rotate(3deg));
+      }
+      45% {
+        @include transform(translateX(-15%) rotate(-3deg));
+      }
+      60% {
+        @include transform(translateX(10%) rotate(2deg));
+      }
+      75% {
+        @include transform(translateX(-5%) rotate(-1deg));
+      }
+      100% {
+        @include transform(translateX(0%));
+      }
+    }
+  }
+  @else if $actionName == tada {
+    @include action($actionName) {
+      0% {
+        @include transform(scale(1));
+      }
+      10%, 20% {
+        @include transform(scale(0.9) rotate(-3deg));
+      }
+      30%, 50%, 70%, 90% {
+        @include transform(scale(1.1) rotate(3deg));
+      }
+      40%, 60%, 80% {
+        @include transform(scale(1.1) rotate(-3deg));
+      }
+      100% {
+        @include transform(scale(1) rotate(0));
+      }
+    }
+  }
+  @else if $actionName == swing {
+    @include action($actionName) {
+      20% {
+        @include transform(rotate(15deg));
+      }
+      40% {
+        @include transform(rotate(-10deg));
+      }
+      60% {
+        @include transform(rotate(5deg));
+      }
+      80% {
+        @include transform(rotate(-5deg));
+      }
+      100% {
+        @include transform(rotate(0deg));
+      }
+    }
+  }
+  @else if $actionName == shake {
+    @include action($actionName) {
+      0%, 100% {
+        @include transform(translateX(0));
+      }
+      10%, 30%, 50%, 70%, 90% {
+        @include transform(translateX(-10px));
+      }
+      20%, 40%, 60%, 80% {
+        @include transform(translateX(10px));
+      }
+    }
+  }
+  @else if $actionName == rubberBand {
+    @include action($actionName) {
+      0% {
+        @include transform(scale(1));
+      }
+      30% {
+        @include transform(scaleX(1.25) scaleY(0.75));
+      }
+      40% {
+        @include transform(scaleX(0.75) scaleY(1.25));
+      }
+      60% {
+        @include transform(scaleX(1.15) scaleY(0.85));
+      }
+      100% {
+        @include transform(scale(1));
+      }
+    }
+  }
+  @else if $actionName == pulse {
+    @include action($actionName) {
+      0% {
+        @include transform(scale(1));
+      }
+      50% {
+        @include transform(scale(1.1));
+      }
+      100% {
+        @include transform(scale(1));
+      }
+    }
+  }
+  @else if $actionName == flash {
+    @include action($actionName) {
+      0%, 50%, 100% {
+        opacity: 1;
+      }
+      25%, 75% {
+        opacity: 0;
+      }
+    }
+  }
+  @else if $actionName == bounce {
+    @include action($actionName) {
+      0%, 20%, 50%, 80%, 100% {
+        @include transform(translateY(0));
+      }
+      40% {
+        @include transform(translateY(-30px));
+      }
+      60% {
+        @include transform(translateY(-15px));
+      }
+    }
+  }
+  @else if $actionName == animated {
+    .animated {
+      @include experimental(animation-duration,1s,$moz:false,$o:false,$ms:false);
+      @include experimental(animation-fill-mode,both,$moz:false,$o:false,$ms:false);
+    }
+  }
+  @else if $actionName == infinite {
+    .animated.infinite {
+      @include experimental(animation-iteration-count,infinite,$moz:false,$o:false,$ms:false);
+    }
+  }
+  @else {
+    @include action($actionName) {
+      @content;
+    }
+  }
+}
