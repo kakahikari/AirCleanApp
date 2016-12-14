@@ -7,7 +7,7 @@
 @mixin move($name:name,$speed:600ms,$iteration:-1,$delay:0,$fill:both,$direction:alternate) {
   @include experimental(animation-name,$name,$moz:false,$o:false,$ms:false);
   @include experimental(animation-duration,$speed,$moz:false,$o:false,$ms:false);
-  @if $iteration == -1 {    
+  @if $iteration == -1 {
     @include experimental(animation-iteration-count,infinite,$moz:false,$o:false,$ms:false);
   }
   @else {
@@ -19,10 +19,10 @@
 }
 @mixin action($actionName:newAction) {
   @-webkit-keyframes #{$actionName} {
-    @content; 
+    @content;
   }
   @keyframes #{$actionName} {
-    @content; 
+    @content;
   }
   .#{$actionName} {
     @include experimental(animation-name,$actionName,$moz:false,$o:false,$ms:false);
@@ -38,7 +38,7 @@
     @if $actionName == swing {
       @include experimental(transform-origin,top center,$moz:false,$o:false);
     }
-  }    
+  }
   @if $actionName == flip {
     .animated.flip {
       @include experimental(backface-visibility,visible !important,$moz:false,$o:false);

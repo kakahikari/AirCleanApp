@@ -1,0 +1,7 @@
+mixin item__switch(isOn=false)
+  .item__switch(class=isOn ? '--on' : '')
+
+mixin data__range(spanText ,spanClass, val=0)
+  .data__range
+    span(class="--"+spanClass)=spanText
+    input(type="range" min="0" max="10" step="1")

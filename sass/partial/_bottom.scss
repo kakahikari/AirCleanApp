@@ -1,22 +1,24 @@
 .bottom {
   margin-bottom: .75em;
-  .bottom__item {
-    position: relative;
-    padding: 12px 28px;
-    background: rgba(black, .38);
-    span {
-      display: block;
-      font-size: 1.25em;
-    }
-    .data {
-      img {
-        margin: 18px 0;
-      }
-    }
-    .switch {
-      position: absolute;
-      right: 28px;
-      top: 14px;
+}
+
+.bottom__item {
+  margin-bottom: 12px;
+  position: relative;
+  padding: 12px 28px;
+  background: rgba(black, .38);
+  .data {
+    img {
+      margin: 18px 0;
     }
   }
+  .item__switch {
+    top: 14px;
+  }
+}
+
+.bottom__item__span {
+  margin-bottom: 18px;
+  display: block;
+  font-size: 1.25em;
 }

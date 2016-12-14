@@ -1,5 +1,4 @@
-
-<mixin> </mixin><!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -10,7 +9,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="index-header"><a href="setting.html" class="setting-button"></a>
+      <div class="index-header"><a class="setting-button" href="setting.html"></a>
         <div class="center">台北市 大安區</div>
         <div class="time">2016.06.01 週三 07:00 AM</div>
         <div class="menu-button"></div>
@@ -39,13 +38,21 @@
     </div>
     <div class="bottom-container">
       <div class="bottom">
-        <div class="bottom__item"><span>空氣濾淨機</span>
-          <div class="data"><img src="images/fake/05.png"></div>
-          <div class="switch"><img src="images/fake/04.png"></div>
+        <div class="bottom__item"><span class="bottom__item__span">空氣濾淨機</span>
+          <div class="data">
+            <div class="data__range"><span class="--windspeed">風速</span>
+              <input type="range" min="0" max="10" step="1"/>
+            </div><img src="images/fake/05.png">
+          </div>
+          <div class="item__switch --on"></div>
         </div>
-        <div class="bottom__item"><span>除溼機</span>
-          <div class="data"><img src="images/fake/07.png"></div>
-          <div class="switch"><img src="images/fake/06.png"></div>
+        <div class="bottom__item"><span class="bottom__item__span">除溼機</span>
+          <div class="data">
+            <div class="data__range"><span class="--dehumidifier">濕度</span>
+              <input type="range" min="0" max="10" step="1"/>
+            </div><img src="images/fake/07.png">
+          </div>
+          <div class="item__switch"></div>
         </div>
       </div>
     </div>
@@ -53,7 +60,7 @@
       <div class="right-menu">
         <div class="header">
           <div class="add-button"></div>
-          <div class="switch"><img src="images/fake/01.png"></div>
+          <div class="switch">全裝置</div>
           <div class="edit-button"></div>
         </div>
         <div class="group">

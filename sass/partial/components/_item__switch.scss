@@ -1,0 +1,34 @@
+.item__switch {
+  $_switch-width: 57px;
+  $_switch-height: 18px;
+  $_button-width: 29px;
+  position: absolute;
+  right: 0;
+  top: calc(50% - #{$_switch-height}/2);
+  margin: 0 18px;
+  width: $_switch-width;
+  height: $_switch-height;
+  border-radius: $_switch-height;
+  background-color: rgba(#fff, .38);
+  transition: all $default-transit;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: $_button-width;
+    height: 100%;
+    border-radius: $_switch-height;
+    background-color: #fff;
+    text-align: center;
+    color: #2D3E4F;
+    transition: all $default-transit;
+  }
+  &.--on {
+    background-color: #7ED321;
+    &:after {
+      left: $_switch-width - $_button-width;
+    }
+  }
+}

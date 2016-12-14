@@ -3,7 +3,7 @@
   flex-direction: column;
   height: 107px;
   overflow: hidden;
-  transition: all .5s $default-time-function;
+  transition: all $default-transit $default-time-function;
   .row {
     margin: 1em auto 0;
     display: flex;

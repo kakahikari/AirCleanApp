@@ -1,0 +1,63 @@
+$_icon-size: 18px;
+$_bar-size: 4px;
+.data__range {
+  position: relative;
+  width: 100%;
+  padding-left: 76px;
+  span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+    padding-left: $_icon-size + 5px;
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: calc(50% - #{$_icon-size/2});
+      width: $_icon-size;
+      height: $_icon-size;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+    }
+    &.--dehumidifier {
+      &:after {
+        background-image: url("../images/components/icon-wet.svg");
+        background-size: images-width("../images/components/icon-wet.svg") images-height("../images/components/icon-wet.svg");
+      }
+    }
+    &.--windspeed {
+      &:after {
+        background-image: url("../images/components/icon-windy.svg");
+        background-size: images-width("../images/components/icon-windy.svg") images-height("../images/components/icon-windy.svg");
+      }
+    }
+  }
+  input[type="range"] {
+    position: relative;
+    width: 100%;
+    border-radius: $_bar-size;
+    background: none;
+    background-color: rgba(black, .54);
+    outline : none;
+    -webkit-appearance: none;
+    &:focus {
+      outline: 0;
+    }
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    position: relative;
+    top: calc(50% - #{$_icon-size/2});
+    width: $_icon-size;
+    height: $_icon-size;
+    background: $default;
+    border-radius: 50%;
+    -webkit-appearance: none;
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    height: $_bar-size;
+    border-radius: $_bar-size;
+  }
+}

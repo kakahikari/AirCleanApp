@@ -1,18 +1,21 @@
 $max-width: 325px;
 $right-menu-width: 272px;
 
+$default-font-size: 16px;
 $default: #fff;
 $right-menu-bg: #000;
 
 $default-time-function: ease;
+$default-transit: .5s;
 
+@import "compass";
 @import "reset";
-@import "layout/layout";
-@import "partial/index-header";
-@import "partial/main-status";
-@import "partial/group";
-@import "partial/right-menu";
-@import "partial/bottom";
-@import "partial/setting-header";
-
 @import "animate";
+
+@import "layout/layout";
+@import "partial/*";
+@import "partial/components/*";
+
+@include animate(fadeIn);
+@include animate(fadeInUp);
+@include animate(fadeOutUp);

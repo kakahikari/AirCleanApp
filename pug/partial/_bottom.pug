@@ -1,13 +1,13 @@
 .bottom
   .bottom__item
-    span 空氣濾淨機
+    span.bottom__item__span 空氣濾淨機
     .data
+      +data__range("風速", "windspeed")
       img(src="images/fake/05.png")
-    .switch
-      img(src="images/fake/04.png")
+    +item__switch(true)
   .bottom__item
-    span 除溼機
+    span.bottom__item__span 除溼機
     .data
+      +data__range("濕度", "dehumidifier")
       img(src="images/fake/07.png")
-    .switch
-      img(src="images/fake/06.png")
+    +item__switch

@@ -2,8 +2,10 @@
   position: relative;
   width: 100%;
   padding: 0 11px;
+  padding-top: 32px;
   .header {
-    .add-button, .edit-button {
+    .add-button,
+    .edit-button {
       position: absolute;
       top: 0;
       margin: 18px;
@@ -22,9 +24,42 @@
       // background-size: contain;
     }
     .switch {
-      margin: 0 auto;
-      padding: 21px;
-      text-align: center;
+      $_switch-width: 134px;
+      $_switch-height: 26px;
+      $_button-width: 72px;
+      position: absolute;
+      left: 0;
+      top: 21px;
+      margin: 0 69px;
+      width: $_switch-width;
+      height: $_switch-height;
+      padding: 0 10px;
+      border-radius: $_switch-height;
+      background-color: rgba(#fff, .38);
+      line-height: $_switch-height;
+      transition: all $default-transit;
+      &:after {
+        content: "OFF";
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: $_button-width;
+        height: 100%;
+        border-radius: $_switch-height;
+        background-color: #fff;
+        text-align: center;
+        line-height: $_switch-height;
+        color: #2D3E4F;
+        transition: all $default-transit;
+      }
+      &.on {
+        background-color: #7ED321;
+        &:after {
+          content: "ON";
+          left: $_switch-width - $_button-width;
+        }
+      }
     }
   }
   .group {
