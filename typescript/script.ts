@@ -46,6 +46,7 @@ $(document).on('input', '.data__range', function(){
 })
 $('.data__range').trigger('input')
 
+// UI function
 function rightContentToggle() {
   $('.container').toggleClass('js-left')
   $('.right-container').toggleClass('--js-active')

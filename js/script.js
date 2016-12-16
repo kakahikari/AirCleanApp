@@ -42,6 +42,7 @@ $(document).on('input', '.data__range', function () {
     target.css('background-image', '-webkit-linear-gradient(left, white, white ' + fill + '%, transparent ' + fill + '%, transparent)');
 });
 $('.data__range').trigger('input');
+// UI function
 function rightContentToggle() {
     $('.container').toggleClass('js-left');
     $('.right-container').toggleClass('--js-active');
