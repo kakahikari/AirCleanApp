@@ -514,9 +514,9 @@ html, body {
     text-align: center;
     color: #2D3E4F;
     transition: all 0.5s; }
-  .item__switch.--on {
+  .item__switch.js--on {
     background-color: #7ED321; }
-    .item__switch.--on:after {
+    .item__switch.js--on:after {
       left: 28px; }
 
 @-webkit-keyframes fadeIn {

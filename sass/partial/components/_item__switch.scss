@@ -25,7 +25,7 @@
     color: #2D3E4F;
     transition: all $default-transit;
   }
-  &.--on {
+  &.js--on {
     background-color: #7ED321;
     &:after {
       left: $_switch-width - $_button-width;
